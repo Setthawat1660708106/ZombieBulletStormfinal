@@ -53,6 +53,20 @@ public class ZombieAI : MonoBehaviour
 #endif
     }
 
+    private float speedMultiplier = 1f;
+
+    /// <summary>ให้ WaveManager ปรับความเร็วซอมบี้ตาม Wave</summary>
+    public void SetSpeedMultiplier(float m) => speedMultiplier = Mathf.Max(0.1f, m);
+
+    /// <summary>ให้ซอมบี้รู้ตำแหน่งผู้เล่นตลอด และไล่ทันทีที่เกิด (เหมาะกับโหมด Wave)</summary>
+    public void ForceChase()
+    {
+        needLineOfSight = false;
+        detectRange = 9999f;
+        loseRange = 9999f;
+        state = State.Chase;
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -106,7 +120,7 @@ public class ZombieAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float speed = state == State.Chase ? chaseSpeed : wanderSpeed;
+        float speed = (state == State.Chase ? chaseSpeed : wanderSpeed) * speedMultiplier;
         Velocity = Vector2.MoveTowards(Velocity, moveDir * speed, acceleration * Time.fixedDeltaTime);
     }
 
