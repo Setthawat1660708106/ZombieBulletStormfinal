@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d8719c52794d042b2251abc1549161, type: 3}
+  m_Name: ZombieData
+  m_EditorClassIdentifier: Assembly-CSharp::ZombieData
+  zombieName: Zombie
+  prefab: {fileID: 7222067725600896176, guid: c66c07115c90ea649b98693faf2d254c, type: 3}
+  maxHp: 30
+  moveSpeed: 2
+  damage: 5
+  attackRange: 1.5
+  attackCooldown: 1
+  attackWindup: 0.25
+  dropChance: 0.3
